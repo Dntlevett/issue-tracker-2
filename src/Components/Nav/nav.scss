@@ -1,0 +1,16 @@
+.navBarContainer {
+  display: flex;
+  border-bottom: 0.1rem solid black;
+  height: 20px;
+  margin-top: 0.9rem;
+  padding: 0.5rem 0.5rem 1rem 1rem;
+}
+.navBar {
+  padding-left: 1rem;
+  &-Link1,
+  &-Link2 {
+    color: rgb(87, 85, 85);
+    text-decoration: none;
+    // padding: 0.6rem;
+  }
+}
