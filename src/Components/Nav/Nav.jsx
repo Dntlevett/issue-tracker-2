@@ -5,7 +5,9 @@ function Nav() {
   return (
     <div className="navBarContainer">
       <Link href="/">
-        <AiFillBug />
+        <div className="logoBug">
+          <AiFillBug />{" "}
+        </div>
       </Link>
       <nav className="navBar">
         <Link className="navBar-Link1" href="/Issues">

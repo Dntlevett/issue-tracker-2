@@ -1,3 +1,8 @@
+.logoBug {
+  color: black;
+  text-decoration: none;
+  //   width: 1 rem;
+}
 .navBarContainer {
   display: flex;
   border-bottom: 0.1rem solid black;
@@ -11,6 +16,7 @@
   &-Link2 {
     color: rgb(87, 85, 85);
     text-decoration: none;
+
     // padding: 0.6rem;
   }
 }
