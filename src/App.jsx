@@ -1,4 +1,5 @@
 import "./App.scss";
+import DashBoardPage from "./Pages/DashBoardPage.jsx";
 import IssuesPage from "./Pages/IssuesPage.jsx";
 import LandingPage from "./Pages/LandingPage.jsx";
 import React from "react";
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/issues" element={<IssuesPage />} />
+          <Route path="/dashboard" element={<DashBoardPage />} />
         </Routes>
       </BrowserRouter>
     </div>
