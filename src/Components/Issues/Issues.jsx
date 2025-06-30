@@ -1,7 +1,8 @@
+import "./issues.scss";
 function Issues() {
   return (
     <>
-      <h1>Hello world mk2</h1>
+      <button className="issues-button">New Issues</button>
     </>
   );
 }
