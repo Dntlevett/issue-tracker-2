@@ -12,7 +12,14 @@ const ContactForm = () => {
     const res = await fetch("/api/data", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, message, timestamp }),
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+        timestamp,
+        status: "Open",
+        tags: ["Bug", "Urgent"],
+      }),
     });
     const result = await res.json();
     console.log(result);

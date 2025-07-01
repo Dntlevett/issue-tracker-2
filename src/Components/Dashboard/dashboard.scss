@@ -55,3 +55,38 @@
     }
   }
 }
+status-badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &.open {
+    background: #e3fcef;
+    color: #006644;
+  }
+  &.inprogress {
+    background: #deebff;
+    color: #0747a6;
+  }
+  &.done {
+    background: #e6fcff;
+    color: #0065ff;
+  }
+}
+.tags {
+  margin-top: 0.5rem;
+
+  .tag {
+    display: inline-block;
+    background: #f0f0f0;
+    color: #333;
+    font-size: 0.75rem;
+    padding: 3px 6px;
+    border-radius: 3px;
+    margin-right: 0.5rem;
+  }
+}

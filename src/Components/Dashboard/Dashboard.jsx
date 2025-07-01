@@ -26,11 +26,46 @@ function Dashboard() {
             <li key={ticket.id} className="ticket">
               <div className="ticket-header">
                 <strong>#{ticket.id}</strong> - {ticket.name} ({ticket.email})
+                <span
+                  className={`status-badge ${
+                    ticket.status.toLowerCase() || "open"
+                  }`}
+                  onClick={async () => {
+                    try {
+                      const res = await fetch(`/api/data/${ticket.id}/status`, {
+                        method: "PATCH",
+                      });
+                      const data = await res.json();
+                      setTickets((prev) =>
+                        prev.map((t) =>
+                          t.id === ticket.id
+                            ? { ...t, status: data.ticket.status }
+                            : t
+                        )
+                      );
+                    } catch (err) {
+                      console.error("Failed to update status", err);
+                    }
+                  }}
+                  style={{ cursor: "pointer" }}
+                >
+                  {ticket.status || "Open"}
+                </span>
               </div>
+
               <div className="ticket-body">
                 <p>{ticket.message}</p>
                 <small>{new Date(ticket.timestamp).toLocaleString()}</small>
               </div>
+              {ticket.tags?.length > 0 && (
+                <div className="tags">
+                  {ticket.tags.map((tag, i) => (
+                    <span key={i} className="tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </li>
           ))}
         </ul>
