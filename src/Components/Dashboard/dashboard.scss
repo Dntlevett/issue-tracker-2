@@ -1,0 +1,57 @@
+.dashboard {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  background: #f4f5f7;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  h1 {
+    color: #0052cc;
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+  }
+  .ticket-list {
+    list-style: none;
+    padding: 0;
+
+    .ticket {
+      background: #ffffff;
+      border: 1px solid #dfe1e6;
+      border-radius: 5px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      //   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        background-color: #f0f4ff;
+      }
+
+      .ticket-header {
+        font-weight: 600;
+        color: #172b4d;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+
+        strong {
+          color: #0052cc;
+        }
+      }
+      .ticket-body {
+        font-size: 0.95rem;
+        color: #344563;
+
+        p {
+          margin: 0 0 0.5rem;
+        }
+        small {
+          color: #6b778c;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
