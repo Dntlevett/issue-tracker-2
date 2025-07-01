@@ -28,7 +28,7 @@ function Dashboard() {
                 <strong>#{ticket.id}</strong> - {ticket.name} ({ticket.email})
                 <span
                   className={`status-badge ${
-                    ticket.status.toLowerCase() || "open"
+                    ticket.status?.toLowerCase().replace(/\s+/g, "") || "open"
                   }`}
                   onClick={async () => {
                     try {
@@ -51,6 +51,33 @@ function Dashboard() {
                 >
                   {ticket.status || "Open"}
                 </span>
+                {/* <span
+                  className={`status-badge ${
+                    ticket.status.toLowerCase().replace(/\s+/g,) onClick={handleStatusChange}
+                    style={{cursor: "pointer"}}
+                    > || "open"
+                  }`}
+                  onClick={async () => {
+                    try {
+                      const res = await fetch(`/api/data/${ticket.id}/status`, {
+                        method: "PATCH",
+                      });
+                      const data = await res.json();
+                      setTickets((prev) =>
+                        prev.map((t) =>
+                          t.id === ticket.id
+                            ? { ...t, status: data.ticket.status }
+                            : t
+                        )
+                      );
+                    } catch (err) {
+                      console.error("Failed to update status", err);
+                    }
+                  }}
+                  style={{ cursor: "pointer" }}
+                >
+                  {ticket.status || "Open"}
+                </span> */}
               </div>
 
               <div className="ticket-body">

@@ -55,7 +55,7 @@
     }
   }
 }
-status-badge {
+.status-badge {
   display: inline-block;
   margin-left: 0.5rem;
   padding: 2px 8px;
@@ -64,13 +64,17 @@ status-badge {
   font-weight: 600;
   text-transform: uppercase;
 
+  &:hover {
+    filter: brightness(0.95);
+    transform: scale(1.05);
+  }
   &.open {
     background: #e3fcef;
     color: #006644;
   }
   &.inprogress {
     background: #deebff;
-    color: #0747a6;
+    color: rgb(193, 126, 3);
   }
   &.done {
     background: #e6fcff;
