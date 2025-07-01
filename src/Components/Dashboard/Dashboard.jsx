@@ -3,6 +3,21 @@ import "./dashboard.scss";
 
 function Dashboard() {
   const [tickets, setTickets] = useState([]);
+  const [filter, setFilter] = useState(null);
+
+  const handleFilterChange = async (tag) => {
+    const selected = filter === tag ? null : tag;
+    setFilter(selected);
+    try {
+      const res = await fetch(
+        selected ? `/api/data?tag=${selected}` : "/api/data"
+      );
+      const data = await res.json();
+      setTickets(data.entries);
+    } catch (err) {
+      console.error("Failed to fetch filter tickets", err);
+    }
+  };
 
   useEffect(() => {
     const fetchTickets = async () => {
@@ -20,6 +35,19 @@ function Dashboard() {
   return (
     <div className="dashboard">
       <h1>Support Tickets</h1>
+
+      <div className="tag-filters">
+        {["bug", "urgent", "feature"].map((tag) => (
+          <button
+            key={tag}
+            className={`filter-button ${filter === tag ? "active" : ""}`}
+            onClick={() => handleFilterChange(tag)}
+          >
+            {tag}
+          </button>
+        ))}
+      </div>
+
       {tickets.length > 0 ? (
         <ul className="ticket-list">
           {tickets.map((ticket) => (
@@ -59,7 +87,7 @@ function Dashboard() {
               </div>
 
               <div className="tags">
-                {["Bug", "Urgent", "Feature"].map((tagName) => {
+                {["bug", "urgent", "feature"].map((tagName) => {
                   const isActive = ticket.tags.includes(tagName);
                   return (
                     <span
