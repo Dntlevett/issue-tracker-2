@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import "./dashboard.scss";
 
 function Dashboard() {
-  // Set state
   const [tickets, setTickets] = useState([]);
-  // Call all tickets
+
   useEffect(() => {
     const fetchTickets = async () => {
       try {
@@ -17,6 +16,7 @@ function Dashboard() {
     };
     fetchTickets();
   }, []);
+
   return (
     <div className="dashboard">
       <h1>Support Tickets</h1>
@@ -51,48 +51,51 @@ function Dashboard() {
                 >
                   {ticket.status || "Open"}
                 </span>
-                {/* <span
-                  className={`status-badge ${
-                    ticket.status.toLowerCase().replace(/\s+/g,) onClick={handleStatusChange}
-                    style={{cursor: "pointer"}}
-                    > || "open"
-                  }`}
-                  onClick={async () => {
-                    try {
-                      const res = await fetch(`/api/data/${ticket.id}/status`, {
-                        method: "PATCH",
-                      });
-                      const data = await res.json();
-                      setTickets((prev) =>
-                        prev.map((t) =>
-                          t.id === ticket.id
-                            ? { ...t, status: data.ticket.status }
-                            : t
-                        )
-                      );
-                    } catch (err) {
-                      console.error("Failed to update status", err);
-                    }
-                  }}
-                  style={{ cursor: "pointer" }}
-                >
-                  {ticket.status || "Open"}
-                </span> */}
               </div>
 
               <div className="ticket-body">
                 <p>{ticket.message}</p>
                 <small>{new Date(ticket.timestamp).toLocaleString()}</small>
               </div>
-              {ticket.tags?.length > 0 && (
-                <div className="tags">
-                  {ticket.tags.map((tag, i) => (
-                    <span key={i} className="tag">
-                      {tag}
+
+              <div className="tags">
+                {["Bug", "Urgent", "Feature"].map((tagName) => {
+                  const isActive = ticket.tags.includes(tagName);
+                  return (
+                    <span
+                      key={tagName}
+                      className={`tag ${tagName.toLowerCase()} ${
+                        isActive ? "active" : ""
+                      }`}
+                      onClick={async () => {
+                        try {
+                          const res = await fetch(
+                            `/api/data/${ticket.id}/tags`,
+                            {
+                              method: "PATCH",
+                              headers: { "Content-Type": "application/json" },
+                              body: JSON.stringify({ tag: tagName }),
+                            }
+                          );
+                          const data = await res.json();
+                          setTickets((prev) =>
+                            prev.map((t) =>
+                              t.id === ticket.id
+                                ? { ...t, tags: data.ticket.tags }
+                                : t
+                            )
+                          );
+                        } catch (err) {
+                          console.error("Failed to toggle tag:", err);
+                        }
+                      }}
+                      style={{ cursor: "pointer" }}
+                    >
+                      {tagName}
                     </span>
-                  ))}
-                </div>
-              )}
+                  );
+                })}
+              </div>
             </li>
           ))}
         </ul>
@@ -102,4 +105,5 @@ function Dashboard() {
     </div>
   );
 }
+
 export default Dashboard;
