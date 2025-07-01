@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./contactForm.scss";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -21,7 +22,7 @@ const ContactForm = () => {
     <form className="ticket-form" onSubmit={handleSubmit}>
       <h2>Create Ticket</h2>
       <div className="form-field">
-        <label>Name</label>
+        {/* <label>Name</label> */}
         <input
           type="text"
           placeholder="Name"
@@ -31,7 +32,7 @@ const ContactForm = () => {
       </div>
       <div className="form-field">
         <input
-          type="email"
+          type="Email"
           placeholder="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -39,7 +40,7 @@ const ContactForm = () => {
       </div>
       <div className="form-field">
         <input
-          type="message"
+          type="Message"
           rows="4"
           placeholder="message"
           value={message}
