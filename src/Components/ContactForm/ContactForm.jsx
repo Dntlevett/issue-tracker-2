@@ -19,7 +19,7 @@ const ContactForm = () => {
         message,
         timestamp,
         status: "Open",
-        tags: ["bug", "urgent", "feature"],
+        tags,
       }),
     });
     const result = await res.json();

@@ -47,6 +47,11 @@ function Dashboard() {
           </button>
         ))}
       </div>
+      {filter && (
+        <p className="filter-summary">
+          Showing tickets tagged with <strong>{filter}</strong>
+        </p>
+      )}
 
       {tickets.length > 0 ? (
         <ul className="ticket-list">
@@ -64,13 +69,17 @@ function Dashboard() {
                         method: "PATCH",
                       });
                       const data = await res.json();
-                      setTickets((prev) =>
-                        prev.map((t) =>
-                          t.id === ticket.id
-                            ? { ...t, status: data.ticket.status }
-                            : t
-                        )
-                      );
+                      if (filter) {
+                        handleFilterChange(filter);
+                      } else {
+                        setTickets((prev) =>
+                          prev.map((t) =>
+                            t.id === ticket.id
+                              ? { ...t, status: data.ticket.status }
+                              : t
+                          )
+                        );
+                      }
                     } catch (err) {
                       console.error("Failed to update status", err);
                     }

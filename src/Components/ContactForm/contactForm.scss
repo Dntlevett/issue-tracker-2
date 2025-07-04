@@ -52,16 +52,15 @@ button {
 }
 
 .pill {
-  display: inline-block;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.2rem;
   border-radius: 20px;
-  background-color: #f0f0f0;
-  color: #333;
-  cursor: pointer;
-  user-select: none;
-  transition: all 0.2s ease;
-  border: 1px solid transparent;
   font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  background-color: #f1f1f1;
+  border: 2px solid #ccc;
+  color: #555;
+  user-select: none;
 
   input[type="checkbox"] {
     display: none;
@@ -69,11 +68,25 @@ button {
 
   &:hover {
     background-color: #e0e0e0;
+    transform: scale(1.05);
   }
 
   &.active {
     background-color: #007bff;
     color: white;
     border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
   }
+}
+.pill.bug.active {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+.pill.urgent.active {
+  background-color: #fd7e14;
+  border-color: #fd7e14;
+}
+.pill.feature.active {
+  background-color: #28a745;
+  border-color: #28a745;
 }

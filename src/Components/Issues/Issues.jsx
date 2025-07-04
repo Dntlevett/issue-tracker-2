@@ -1,8 +1,10 @@
 import "./issues.scss";
-function Issues() {
+function Issues({ onNewIssueClick }) {
   return (
     <>
-      <button className="issues-button">New Issues</button>
+      <button className="issues-button" onClick={onNewIssueClick}>
+        New Issues
+      </button>
     </>
   );
 }
