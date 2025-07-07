@@ -6,39 +6,31 @@ function Nav() {
   return (
     <div className="navBarContainer">
       <nav className="navBar">
-        <div>
-          {" "}
-          <Link
-            className={`logobug" ${
-              location.pathname === "/" ? "selected" : ""
-            }`}
-            to="/"
-          >
-            <AiFillBug />
-          </Link>
-        </div>
+        <Link
+          className={`logoBug ${location.pathname === "/" ? "selected" : ""}`}
+          to="/"
+          title="Home"
+        >
+          <AiFillBug size={24} />
+        </Link>
 
-        <div>
-          <Link
-            className={`navBar-Link1 ${
-              location.pathname === "/issues" ? "selected" : ""
-            }`}
-            to="/issues"
-          >
-            Issues
-          </Link>
-        </div>
-        <div>
-          {" "}
-          <Link
-            className={`navBar-Link2" ${
-              location.pathname === "/dashboard" ? "selected" : ""
-            }`}
-            to="/dashboard"
-          >
-            Dashboard
-          </Link>
-        </div>
+        <Link
+          className={`navLink ${
+            location.pathname === "/issues" ? "selected" : ""
+          }`}
+          to="/issues"
+        >
+          Issues
+        </Link>
+
+        <Link
+          className={`navLink ${
+            location.pathname === "/dashboard" ? "selected" : ""
+          }`}
+          to="/dashboard"
+        >
+          Dashboard
+        </Link>
       </nav>
     </div>
   );

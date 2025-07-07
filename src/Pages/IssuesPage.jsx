@@ -13,9 +13,9 @@ function IssuesPage() {
       <Nav />
 
       <Issues onNewIssueClick={scrollToForm} />
-      <dif ref={formRef}>
+      <div ref={formRef}>
         <ContactForm />
-      </dif>
+      </div>
     </>
   );
 }

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./contactForm.scss";
 
+// set state for user inputted data
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [tags, setTags] = useState([]);
-
+  // post data on submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     const timestamp = new Date().toISOString();

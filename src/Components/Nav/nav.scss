@@ -1,27 +1,52 @@
 .logoBug {
   color: black;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
 
   // width: 1 rem;
 }
 .navBarContainer {
   display: flex;
-  border-bottom: 0.1rem solid black;
-  // height: 20px;
+  border-bottom: 1px solid #dfe1e6;
+  background-color: #f4f5f7;
   margin-top: 1rem;
-  padding: 0.5rem 0.5rem 1rem 1rem;
+  padding: 0.75rem 1.5rem;
+  justify-content: center;
 }
 .navBar {
   display: flex;
-  justify-content: space-between;
-  padding-left: 1rem;
+  align-items: center;
   gap: 2rem;
-  &-Link1,
-  &-Link2 {
-    color: rgb(87, 85, 85);
-    text-decoration: none;
+  max-width: 1200px;
+  width: 100%;
+}
+// .navBar {
+//   display: flex;
+//   justify-content: space-between;
+//   padding-left: 1rem;
+//   gap: 2rem;
+//   &-Link1,
+//   &-Link2 {
+//     color: rgb(87, 85, 85);
+//     text-decoration: none;
 
-    // padding: 0.6rem;
+//     // padding: 0.6rem;
+//   }
+// }
+.navLink {
+  color: #42526e;
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 0.25rem;
+  transition: color 0.2s ease;
+  &:hover {
+    color: #0052cc;
   }
 }
 .selected {
