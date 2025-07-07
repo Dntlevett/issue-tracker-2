@@ -8,10 +8,11 @@ import { useState } from "react";
 
 // fix urgent and feature buttons on dashboard page where statuses do not update when clicked
 // fix open, progress, closed button on dashboard page
-// update nav styling to match exisiting style
+
 // update landing page styling and markup to match issues and dashboard page theme
 // issues page bug button doesnt turn red, they are all blue
-//
+// creater footer component and style
+
 function App() {
   return (
     <BrowserRouter>
@@ -38,3 +39,4 @@ export default App;
 // 🧠 Smart Tag Suggestions: Auto-suggest tags based on message content.
 
 // 💾 Persistent Storage: Hook up a database like MongoDB or SQLite to save tickets across sessions.
+// 🌑 Add dark Mode toggle, using global theme
