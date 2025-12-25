@@ -2,6 +2,7 @@ import { useRef } from "react";
 import ContactForm from "../Components/ContactForm/ContactForm";
 import Issues from "../Components/Issues/Issues";
 import Nav from "../Components/Nav/Nav";
+import Footer from "../Components/Footer/Footer";
 
 function IssuesPage() {
   const formRef = useRef(null);
@@ -16,6 +17,7 @@ function IssuesPage() {
       <div ref={formRef}>
         <ContactForm />
       </div>
+      <Footer />
     </>
   );
 }
