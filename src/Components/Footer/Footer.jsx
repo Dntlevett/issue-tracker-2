@@ -1,4 +1,5 @@
 import "./footer.scss";
+import LogoutButton from "../LogoutButton/LogoutButton";
 function Footer() {
   return (
     <>
@@ -10,6 +11,7 @@ function Footer() {
             <a href="/dashboard">Dashboard</a>
             <a href="/issues">Issues</a>
           </div>
+          <LogoutButton />
         </div>
       </footer>
     </>

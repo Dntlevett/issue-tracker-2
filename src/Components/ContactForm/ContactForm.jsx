@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./contactForm.scss";
+import { useAuth } from "../../context/AuthContext";
 
 // set state for user inputted data
 const ContactForm = () => {
+  const { token } = useAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -13,7 +15,10 @@ const ContactForm = () => {
     const timestamp = new Date().toISOString();
     const res = await fetch("/api/data", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({
         name,
         email,

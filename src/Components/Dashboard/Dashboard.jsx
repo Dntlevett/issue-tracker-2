@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
 import "./dashboard.scss";
+import { useAuth } from "../../context/AuthContext";
 
 function Dashboard() {
   const [tickets, setTickets] = useState([]);
   const [filter, setFilter] = useState(null);
+  const { token } = useAuth();
 
   const handleFilterChange = async (tag) => {
     const selected = filter === tag ? null : tag;
     setFilter(selected);
     try {
       const res = await fetch(
-        selected ? `/api/data?tag=${selected}` : "/api/data"
+        selected ? `/api/data?tag=${selected}` : "/api/data",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       const data = await res.json();
       setTickets(data.entries);
@@ -22,7 +29,11 @@ function Dashboard() {
   useEffect(() => {
     const fetchTickets = async () => {
       try {
-        const res = await fetch("/api/data");
+        const res = await fetch("/api/data", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         const data = await res.json();
         setTickets(data.entries);
       } catch (err) {
@@ -30,7 +41,7 @@ function Dashboard() {
       }
     };
     fetchTickets();
-  }, []);
+  }, [token]);
 
   return (
     <div className="dashboard">
@@ -67,6 +78,9 @@ function Dashboard() {
                     try {
                       const res = await fetch(`/api/data/${ticket.id}/status`, {
                         method: "PATCH",
+                        headers: {
+                          Authorization: `Bearer ${token}`,
+                        },
                       });
                       const data = await res.json();
                       if (filter) {
@@ -110,7 +124,10 @@ function Dashboard() {
                             `/api/data/${ticket.id}/tags`,
                             {
                               method: "PATCH",
-                              headers: { "Content-Type": "application/json" },
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization: `Bearer ${token}`,
+                              },
                               body: JSON.stringify({ tag: tagName }),
                             }
                           );

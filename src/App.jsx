@@ -5,23 +5,44 @@ import LandingPage from "./Pages/LandingPage.jsx";
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import { AuthProvider } from "./context/AuthContext.jsx";
+import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute.jsx";
 
 // fix urgent and feature buttons on dashboard page where statuses do not update when clicked
 // fix open, progress, closed button on dashboard page
 
 // update landing page styling and markup to match issues and dashboard page theme
-// issues page bug button doesnt turn red, they are all blue
+
 // creater footer component and style
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/issues" element={<IssuesPage />} />
-        <Route path="/dashboard" element={<DashBoardPage />} />
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          {/* Public route */}
+          <Route path="/" element={<LandingPage />} />
+          {/* Protected routes */}
+
+          <Route
+            path="/issues"
+            element={
+              <ProtectedRoute>
+                <IssuesPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <DashBoardPage />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
