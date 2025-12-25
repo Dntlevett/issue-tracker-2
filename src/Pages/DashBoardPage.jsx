@@ -1,4 +1,5 @@
 import Dashboard from "../Components/Dashboard/Dashboard";
+import Footer from "../Components/Footer/Footer";
 import Nav from "../Components/Nav/Nav";
 
 function DashBoardPage() {
@@ -6,6 +7,7 @@ function DashBoardPage() {
     <>
       <Nav />
       <Dashboard />;
+      <Footer />;
     </>
   );
 }
