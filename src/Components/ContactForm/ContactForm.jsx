@@ -12,7 +12,7 @@ const ContactForm = () => {
   // post data on submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const timestamp = new Date().toISOString();
+    // const timestamp = new Date().toISOString();
     const res = await fetch("/api/data", {
       method: "POST",
       headers: {
@@ -23,7 +23,7 @@ const ContactForm = () => {
         name,
         email,
         message,
-        timestamp,
+        // timestamp,
         status: "Open",
         tags,
       }),

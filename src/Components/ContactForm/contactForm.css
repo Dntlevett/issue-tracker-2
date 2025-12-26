@@ -1,0 +1,113 @@
+.ticket-form {
+  max-width: 520px;
+  margin: 2.5rem auto;
+  background: #ffffff;
+  border: 1px solid #dfe1e6;
+  border-radius: 8px;
+  padding: 2rem 2.5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.ticket-form h2 {
+  margin-bottom: 1.5rem;
+  color: #0052cc;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+}
+.ticket-form .form-field {
+  margin-bottom: 1.2rem;
+}
+.ticket-form .form-field label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #172b4d;
+}
+.ticket-form .form-field input,
+.ticket-form .form-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  border: 1px solid #dfe1e6;
+  border-radius: 5px;
+  background: #ffffff;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+.ticket-form .form-field input:focus,
+.ticket-form .form-field textarea:focus {
+  outline: none;
+  border-color: #0052cc;
+  box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.2);
+}
+.ticket-form button {
+  width: 100%;
+  background-color: #0052cc;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.ticket-form button:hover {
+  background-color: #0747a6;
+  transform: translateY(-1px);
+}
+.ticket-form button:active {
+  background-color: #053f8a;
+  transform: translateY(0);
+}
+
+/* Tag Pills */
+.pill-container {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pill {
+  padding: 0.45rem 1.1rem;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.15s ease;
+  background-color: #f4f5f7;
+  border: 1px solid #dfe1e6;
+  color: #42526e;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.pill input[type=checkbox] {
+  display: none;
+}
+.pill:hover {
+  background-color: #ebecf0;
+  transform: translateY(-1px);
+}
+.pill.active {
+  background-color: #0052cc;
+  color: white;
+  border-color: #0052cc;
+  box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.25);
+}
+
+/* Optional: Color-coded active states */
+.pill.bug.active {
+  background-color: #de350b;
+  border-color: #de350b;
+}
+
+.pill.urgent.active {
+  background-color: #ff8b00;
+  border-color: #ff8b00;
+}
+
+.pill.feature.active {
+  background-color: #36b37e;
+  border-color: #36b37e;
+}/*# sourceMappingURL=contactForm.css.map */

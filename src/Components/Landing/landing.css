@@ -1,0 +1,49 @@
+.landing {
+  padding: 2rem;
+  text-align: center;
+}
+.landing .hero {
+  margin-bottom: 3rem;
+}
+.landing .hero h1 {
+  font-size: 2.5rem;
+  color: #0052cc;
+}
+.landing .hero p {
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-top: 0.5rem;
+}
+.landing .hero .cta-button {
+  margin-top: 1.5rem;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--link);
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.landing .hero .cta-button:hover {
+  background-color: var(--link-hover);
+}
+.landing .features {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.landing .features .feature {
+  max-width: 200px;
+}
+.landing .features .feature h3 {
+  margin-top: 0.5rem;
+  color: var(--text);
+}
+.landing .features .feature p {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+.landing .features .feature svg {
+  color: var(--link);
+}/*# sourceMappingURL=landing.css.map */
